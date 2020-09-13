@@ -1,7 +1,13 @@
-# vue-mithril-comparison
-A comparison between vue and mithril in the base of vue docs.
+# Vue vs Mithril
 
-See src/App.js for the code
+A comparison between vue and mithril.
+
+Took each example from vue docs and made it in Mithril.
+
+
+[Vue](https://vuejs.org/v2/guide/) vs [Mithril](https://mithril.js.org/)
+
+Keep in mind that Mithril has ZERO dependencies.
 
 
 ```javascript

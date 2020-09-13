@@ -603,3 +603,86 @@ m.mount(
     Buttons
 )
 
+
+
+// Props
+
+/*
+
+Vue.component('blog-post', {
+  // camelCase in JavaScript
+  props: ['postTitle'],
+  template: '<h3>{{ postTitle }}</h3>'
+})
+
+
+<!-- kebab-case in HTML -->
+<blog-post post-title="hello!"></blog-post>
+
+*/
+
+
+const ComponentProps = {
+  view: v => m("div", v.attrs.post_title)
+}
+
+
+m.render(
+  document.getElementById("props"),   
+  m(ComponentProps, {post_title:"hello!"})
+)
+
+
+
+// Routing 
+
+/*
+
+const NotFound = { template: '<p>Page not found</p>' }
+const Home = { template: '<p>home page</p>' }
+const About = { template: '<p>about page</p>' }
+
+const routes = {
+  '/': Home,
+  '/about': About
+}
+
+new Vue({
+  el: '#app',
+  data: {
+    currentRoute: window.location.pathname
+  },
+  computed: {
+    ViewComponent () {
+      return routes[this.currentRoute] || NotFound
+    }
+  },
+  render (h) { return h(this.ViewComponent) }
+})
+
+*/
+
+
+const NotFound = { view: v => m('p', 'Page not found') }
+const Home = { view: v => m('p', 'home page') }
+const About = { view: v => m('p', 'about page') }
+
+const routes = {
+  '/home': Home,
+  '/about': About,
+  "/:404...": NotFound
+}
+
+m.route(document.getElementById("routes"), "/home", routes)
+
+
+
+
+
+
+
+
+
+
+
+

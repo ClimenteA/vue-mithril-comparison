@@ -674,6 +674,112 @@ const routes = {
 }
 
 m.route(document.getElementById("routes"), "/home", routes)
+// http://127.0.0.1:5500/#!/about
+
+
+
+
+
+
+
+// State management
+
+/*
+var sourceOfTruth = {}
+
+var vmA = new Vue({
+  data: sourceOfTruth
+})
+
+var vmB = new Vue({
+  data: sourceOfTruth
+})
+
+
+var store = {
+  debug: true,
+  state: {
+    message: 'Hello!'
+  },
+  setMessageAction (newValue) {
+    if (this.debug) console.log('setMessageAction triggered with', newValue)
+    this.state.message = newValue
+  },
+  clearMessageAction () {
+    if (this.debug) console.log('clearMessageAction triggered')
+    this.state.message = ''
+  }
+}
+
+var vmA = new Vue({
+  data: {
+    privateState: {},
+    sharedState: store.state
+  }
+})
+
+var vmB = new Vue({
+  data: {
+    privateState: {},
+    sharedState: store.state
+  }
+})
+
+*/
+
+
+var store = {
+  debug: true,
+  state: {
+    message: 'Hello!'
+  },
+  setMessageAction (newValue) {
+    if (this.debug) console.log('setMessageAction triggered with', newValue)
+    this.state.message = newValue
+  },
+  clearMessageAction () {
+    if (this.debug) console.log('clearMessageAction triggered')
+    this.state.message = ''
+  }
+}
+
+
+const ComponentA = {
+  view: v => m("div", [
+    m("p", "ComponentA state: " + JSON.stringify(store.state)),
+    m("input", {id:"A"}),
+    m("button", { onclick: e => {
+      
+      let newValue = document.getElementById("A").value
+      store.setMessageAction(newValue)
+
+    }}, "Set state")
+  ])
+} 
+
+
+const ComponentB = {
+  view: v => m("div", [
+    m("p", "ComponentB state: " + JSON.stringify(store.state)),
+    m("button", {onclick: e => {
+      store.clearMessageAction()
+    }}, "Clear state")
+  ])
+} 
+
+
+const ComponentsAB = {
+  view: v => [
+    m(ComponentA),
+    m(ComponentB)
+  ]
+}
+
+
+m.mount(
+  document.getElementById("state"),
+  ComponentsAB
+)
 
 
 

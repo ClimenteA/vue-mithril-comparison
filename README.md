@@ -797,3 +797,7 @@ m.mount(
 
 
 ```
+
+Checkout [react vs mithril](https://github.com/ClimenteA/react-mithril-comparison)
+
+

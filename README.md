@@ -4,7 +4,7 @@ A comparison between vue and mithril.
 
 Took each example from [Vue](https://vuejs.org/v2/guide/) docs and made it in [Mithril](https://mithril.js.org/).
 
-Keep in mind that Mithril has ZERO dependencies and only 23kb!
+Keep in mind that Mithril has ZERO dependencies and only 10kb (gzipped)!
 
 
 ```javascript
